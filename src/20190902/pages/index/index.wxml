@@ -5,18 +5,18 @@
     <view class="row-head">
       <text>\n</text>
     </view>
-    <view wx:for="{{serial_number}}" wx:for-item="number" class="col-head">
+    <view wx:for="{{serial_number}}" wx:for-item="number" wx:key="number" class="col-head">
       {{ number }}
     </view>
   </view>
-  <view wx:for="{{ days }}" wx:for-item='day' class='col'>
+  <view wx:for="{{ days }}" wx:for-item='day' wx:key="day" class='col'>
     <view class="row-head">{{ day }}</view>
   </view>
 
   <view id="content">
-    <view wx:for="{{ list }}" wx:for-index="day" wx:for-item="classes">
+    <view wx:for="{{ list }}" wx:for-index="day" wx:for-item="classes" wx:key="day">
       <!-- {{day}}: {{ classes }} -->
-      <view wx:for="{{ classes }}" wx:for-item="class">
+      <view wx:for="{{ classes }}" wx:for-item="class" wx:key="class.id">
         <view class="list-item" style="left: {{ (day-1)*93.75 + 'rpx' }};top: {{ ((class.start-1)*100) + 'rpx'}}; height: {{ (class.end-class.start + 1)*100-4 + 'rpx' }}; background-color: {{ class.color }}">
           <text>{{ class.name + "\n" + class.room}}</text>
         </view>
